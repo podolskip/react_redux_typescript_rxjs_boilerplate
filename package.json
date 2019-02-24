@@ -2,6 +2,10 @@
   "name": "react_redux_typescript_rxjs_boilerplate",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "6.1.0",
+    "node": "10.5.0"
+  },
   "dependencies": {
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
