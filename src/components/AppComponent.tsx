@@ -1,10 +1,12 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import './appComponent.style';
 import {
   Route,
   Switch,
   Router,
 } from 'react-router';
+import { fetchUserInformation } from 'src/store/user/user.actions';
 import { Link } from 'react-router-dom';
 import history from 'src/configuration/history';
 
@@ -30,7 +32,7 @@ const List: React.SFC = (props: any) => {
   );
 };
 
-class App extends React.Component {
+class App extends React.Component<any, any> {
   public render() {
     return (
       <Router
@@ -53,7 +55,12 @@ class App extends React.Component {
               <Link to="/list">List</Link>
             </p>
             <p>
-              <Link to="/user">Home</Link>
+              <Link to="/user">User</Link>
+              <button
+                // tslint:disable:jsx-no-lambda
+                // tslint:disable-next-line:no-console
+                onClick={() => this.props.fetchUserInfo()}
+              >Get User</button>
             </p>
           </div>
           <Switch>
@@ -67,4 +74,8 @@ class App extends React.Component {
   };
 };
 
-export default App;
+const mapActionsToProps = {
+  fetchUserInfo: (userName: string = 'Pat', password: string = 'Pod') => fetchUserInformation({ userName, password })
+}
+
+export default connect(null, mapActionsToProps)(App);
