@@ -1,0 +1,1 @@
+export { reducerPlacesToSeeList } from './placesToSeeList.reducers';
