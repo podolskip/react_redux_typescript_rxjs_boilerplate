@@ -7,7 +7,7 @@ import {
 import {
   debounceTime,
   switchMap,
-  tap,
+  // tap,
 } from 'rxjs/operators';
 // ACTIONS
 import { fetchUserInformationFinished } from './user.actions';
@@ -24,7 +24,6 @@ export const fetchUserInformationEpic: Epic = (
       ofType(UserTypes.USER_INFORMATION_REQUEST),
       debounceTime(2000),
       // tslint:disable-next-line:no-console
-      tap(action => console.log('user api')),
       switchMap(action => (
         fetch('https://randomuser.me/api/')
           .then(res => res.json())

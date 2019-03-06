@@ -11,12 +11,12 @@ export class User extends React.Component<any, any> {
       >
         Get user
       </button>
-    )
+    );
   }
 }
 
 const mapActionsToProps = {
-  fetchUserInfo: (userName: string, password: string) => fetchUserInformation({ userName, password })
-}
+  fetchUserInfo: (userName: string, password: string) => fetchUserInformation({ userName, password }),
+};
 
 export default connect(null, mapActionsToProps)(User);

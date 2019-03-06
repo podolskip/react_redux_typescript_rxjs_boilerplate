@@ -12,7 +12,7 @@ import history from 'src/configuration/history';
 const routerHistoryMiddleware = routerMiddleware(history);
 
 const epicMiddleware = createEpicMiddleware({
-  dependencies: {} // in case for future dependencies
+  dependencies: {}, // in case for future dependencies
 });
 
 export const configureStore = () => {
@@ -28,11 +28,11 @@ export const configureStore = () => {
 
   const store = createStore(
     rootReducer,
-    {}, // preloaded store at start 
+    {}, // preloaded store at start
     compose(
       applyMiddleware(...[
         epicMiddleware,
-        routerHistoryMiddleware
+        routerHistoryMiddleware,
       ]),
       reduxDevToolsExtenstionStart()
     )

@@ -16,13 +16,7 @@ const HomePage: React.SFC = (props: any) => {
       </div>
   );
 };
-// const User: React.SFC = (props: any) => {
-//   return (
-//     <div>
-//       User
-//     </div>
-//   );
-// };
+
 const List: React.SFC = (props: any) => {
   return (
     <div>
@@ -65,7 +59,7 @@ class App extends React.Component<any, any> {
         </div>
       </Router>
     );
-  };
-};
+  }
+}
 
 export default App;
