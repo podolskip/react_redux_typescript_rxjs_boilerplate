@@ -6,6 +6,7 @@ import {
   Router,
 } from 'react-router';
 import { Link } from 'react-router-dom';
+import User from 'src/components/testComponent';
 import history from 'src/configuration/history';
 
 const HomePage: React.SFC = (props: any) => {
@@ -15,13 +16,7 @@ const HomePage: React.SFC = (props: any) => {
       </div>
   );
 };
-const User: React.SFC = (props: any) => {
-  return (
-    <div>
-      User
-    </div>
-  );
-};
+
 const List: React.SFC = (props: any) => {
   return (
     <div>
@@ -30,7 +25,7 @@ const List: React.SFC = (props: any) => {
   );
 };
 
-class App extends React.Component {
+class App extends React.Component<any, any> {
   public render() {
     return (
       <Router
@@ -53,7 +48,7 @@ class App extends React.Component {
               <Link to="/list">List</Link>
             </p>
             <p>
-              <Link to="/user">Home</Link>
+              <Link to="/user">User</Link>
             </p>
           </div>
           <Switch>
@@ -64,7 +59,7 @@ class App extends React.Component {
         </div>
       </Router>
     );
-  };
-};
+  }
+}
 
 export default App;

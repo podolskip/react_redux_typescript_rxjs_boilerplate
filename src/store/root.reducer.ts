@@ -4,13 +4,13 @@ import {
   Reducer,
 } from 'redux';
 import { combineReducers } from 'redux';
-import { IStore } from './store.types';
+import { IState } from 'src/store/store.types';
 
 import { reducerLoaders } from './loaders';
 import { reducerPlacesToSeeList } from './placesToSeeList';
 import { reducerUser } from './user';
 
-export const rootReducer: Reducer<IStore, AnyAction> = combineReducers<IStore, AnyAction>({
+export const rootReducer: Reducer<IState, AnyAction> = combineReducers<IState, AnyAction>({
   user: reducerUser,
   placesToSeeList: reducerPlacesToSeeList,
   activeLoaders: reducerLoaders

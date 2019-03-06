@@ -23,7 +23,7 @@ export interface ISinglePlaceToSee {
   seeBefore: string;
 };
 
-export interface IStore {
+export interface IState {
   user: Optional<IUser>;
   placesToSeeList: ISinglePlaceToSee[];
   activeLoaders: number
