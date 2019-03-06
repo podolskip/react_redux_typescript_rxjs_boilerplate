@@ -1,13 +1,13 @@
 import { Epic } from 'redux-observable';
 import { combineEpics } from 'redux-observable';
-import * as PlacesEpics from './placesToSeeList/placesToSeeList.epics';
-import * as UserEpics from './user/user.epics';
+import { placesToSeeEpic } from './placesToSeeList/placesToSeeList.epics';
+import { fetchUserInformationEpic } from './user/user.epics';
 
-export const rootEpic: Epic = combineEpics(
-  // ...Object.values(UserEpics),
-  // ...Object.values(PlacesEpics)
-  PlacesEpics.placesToSeeEpic,
-  UserEpics.fetchUserInformationEpic
+const rootEpic: Epic = combineEpics(
+  // ...Object.values(UserEpics),  // not supported with IE
+  // ...Object.values(PlacesEpics) // not supported with IE
+  placesToSeeEpic,
+  fetchUserInformationEpic
 );
 
 export default rootEpic;

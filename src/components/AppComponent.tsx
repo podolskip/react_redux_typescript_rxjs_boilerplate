@@ -1,13 +1,12 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
 import './appComponent.style';
 import {
   Route,
   Switch,
   Router,
 } from 'react-router';
-import { fetchUserInformation } from 'src/store/user/user.actions';
 import { Link } from 'react-router-dom';
+import User from 'src/components/testComponent';
 import history from 'src/configuration/history';
 
 const HomePage: React.SFC = (props: any) => {
@@ -17,13 +16,13 @@ const HomePage: React.SFC = (props: any) => {
       </div>
   );
 };
-const User: React.SFC = (props: any) => {
-  return (
-    <div>
-      User
-    </div>
-  );
-};
+// const User: React.SFC = (props: any) => {
+//   return (
+//     <div>
+//       User
+//     </div>
+//   );
+// };
 const List: React.SFC = (props: any) => {
   return (
     <div>
@@ -56,11 +55,6 @@ class App extends React.Component<any, any> {
             </p>
             <p>
               <Link to="/user">User</Link>
-              <button
-                // tslint:disable:jsx-no-lambda
-                // tslint:disable-next-line:no-console
-                onClick={() => this.props.fetchUserInfo()}
-              >Get User</button>
             </p>
           </div>
           <Switch>
@@ -74,8 +68,4 @@ class App extends React.Component<any, any> {
   };
 };
 
-const mapActionsToProps = {
-  fetchUserInfo: (userName: string = 'Pat', password: string = 'Pod') => fetchUserInformation({ userName, password })
-}
-
-export default connect(null, mapActionsToProps)(App);
+export default App;
