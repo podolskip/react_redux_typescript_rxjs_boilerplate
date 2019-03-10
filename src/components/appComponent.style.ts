@@ -1,4 +1,4 @@
-import { cssRaw } from 'typestyle';
+import { cssRaw, style } from 'typestyle';
 
 cssRaw(`
 
@@ -31,3 +31,31 @@ cssRaw(`
         to { transform: rotate(360deg); }
     }
 `);
+
+export const appComponentStyle = {
+  appHeader: style({
+    width: 'auto',
+    marginLeft: '5%',
+    marginRight: '5%',
+  }),
+  toolbarMain: style({
+    borderBottom: '1px solid grey',
+    justifyContent: 'space-between',
+  }),
+  toolbarTitle: style({
+    flex: 1,
+  }),
+  toolbarLinks: style({
+    flex: 1,
+  }),
+  tootlbarSecondary: style({
+    justifyContent: 'space-between',
+  }),
+  headerBtn: style({
+    marginLeft: '5px',
+  }),
+  navLink: style({
+    textDecoration: 'none',
+    color: 'unser',
+  }),
+};

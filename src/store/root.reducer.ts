@@ -13,5 +13,5 @@ import { reducerUser } from './user';
 export const rootReducer: Reducer<IState, AnyAction> = combineReducers<IState, AnyAction>({
   user: reducerUser,
   placesToSeeList: reducerPlacesToSeeList,
-  activeLoaders: reducerLoaders
+  activeLoaders: reducerLoaders,
 });

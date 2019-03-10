@@ -15,6 +15,6 @@ export const reducerPlacesToSeeList: Reducer<ISinglePlaceToSee[]> = (
       return { ...payload as ISinglePlaceToSee[] };
     default:
       return state;
-  };
+  }
 };
 

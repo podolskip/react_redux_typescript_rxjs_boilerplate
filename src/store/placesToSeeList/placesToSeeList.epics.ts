@@ -23,4 +23,4 @@ export const placesToSeeEpic: Epic = (
       // tslint:disable-next-line:no-console
       tap(action => console.log(PlacesTypes, state$)),
       ignoreElements()
-    ); 
+    );
