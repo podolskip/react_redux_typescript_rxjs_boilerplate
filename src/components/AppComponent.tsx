@@ -4,7 +4,6 @@ import {
   Switch,
   Router,
 } from 'react-router';
-import { Link as RouterLink } from 'react-router-dom';
 import User from 'src/components/testComponent';
 import history from 'src/configuration/history';
 // HELPERS
@@ -16,10 +15,17 @@ import {
 // MATERIAL UI
 import Toolbar from '@material-ui/core/Toolbar';
 // import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import AssignmentInd from '@material-ui/icons/AssignmentInd';
+import Fingerprint from '@material-ui/icons/Fingerprint';
+import Email from '@material-ui/icons/Email';
+import Android from '@material-ui/icons/Android';
+import LocationOn from '@material-ui/icons/LocationOn';
+import Whatshot from '@material-ui/icons/Whatshot';
 // STYLES
-import { appComponentStyle as st } from './appComponent.style';
+import { appComponentStyle as cls } from './appComponent.style';
 import './appComponent.style';
 
 const HomePage: React.SFC = (props: any) => {
@@ -47,66 +53,88 @@ class App extends React.Component<any, any> {
         <div>
 
           <div className="App">
-            <header className={st.appHeader}>
-              {/* <img src={logo} className="App-logo" alt="logo" /> */}
-              <Toolbar className={st.toolbarMain}>
-                <Typography
-                  component="h2"
-                  variant="h5"
-                  color="inherit"
-                  align="center"
-                  noWrap={true}
-                  className={st.toolbarTitle}
+            <header className={cls.appHeader}>
+              <Toolbar className={cls.toolbarMain}>
+                <Grid
+                  container={true}
+                  xs={12}
+                  item={true}
+                  alignItems={'center'}
+                  justify={'center'}
+                  direction={'row'}
                 >
-                  React-Redux Boilerplate
-                </Typography>
-                <Button
-                  variant="outlined"
-                  size="small"
-                  className={st.headerBtn}
-                >
-                  Sign In
-                </Button>
-                <Button
-                  variant="outlined"
-                  size="small"
-                  className={st.headerBtn}
-                >
-                  Sign Up
-                </Button>
+                  <Grid xs={2} item={true} />
+                  <Grid xs={8} item={true} >
+                    <Typography
+                      component="h2"
+                      variant="h5"
+                      color="inherit"
+                      align="center"
+                      noWrap={true}
+                      className={cls.toolbarTitle}
+                    >
+                      React-Redux Boilerplate
+                  </Typography>
+                  </Grid>
+                  <Grid
+                    xs={1}
+                    item={true}
+                    className={cls.headerBtnGrid('right')}
+                  >
+                    <Button
+                      // variant="outlined"
+                      size="small"
+                      className={cls.headerBtn}
+                    >
+                      <AssignmentInd />
+                      <div
+                        className={cls.headerBtnText}
+                      >
+                        Sign In
+                      </div>
+                    </Button>
+                  </Grid>
+                  <Grid
+                    xs={1}
+                    item={true}
+                    className={cls.headerBtnGrid('left')}
+                  >
+                    <Button
+                      // variant="outlined"
+                      size="small"
+                      className={cls.headerBtn}
+                    >
+                      <Fingerprint />
+                      <div
+                        className={cls.headerBtnText}
+                      >
+                        Sign Up
+                      </div>
+                    </Button>
+                  </Grid>
+                </Grid>
               </Toolbar>
-              <Toolbar
-                // variant="dense"
-                className={st.tootlbarSecondary}
-              >
-                <Typography
-                  color="inherit"
-                  noWrap={false}
-                  align="center"
-                  className={st.toolbarLinks}
+              <nav>
+                <Toolbar
+                  // variant="dense"
+                  className={cls.tootlbarSecondary}
                 >
-                  {
-                    pipe(
-                      createLinksConfiguration,
-                      createArrayOfJSXLinks
-                    )()
-                  }
-                </Typography>
-              </Toolbar>
+                  <Typography
+                    color="inherit"
+                    noWrap={false}
+                    align="center"
+                    className={cls.toolbarLinks}
+                  >
+                    {
+                      pipe(
+                        createLinksConfiguration,
+                        createArrayOfJSXLinks
+                      )()
+                    }
+                  </Typography>
+                </Toolbar>
+              </nav>
             </header>
-            <nav>
-              <Toolbar>
-                <p>
-                  <RouterLink to="/">Home</RouterLink>
-                </p>
-                <p>
-                  <RouterLink to="/list">List</RouterLink>
-                </p>
-                <p>
-                  <RouterLink to="/user">User</RouterLink>
-                </p>
-              </Toolbar>
-            </nav>
             <section>
               <Switch>
                 <Route exact={true} path="/" component={HomePage} />
@@ -114,8 +142,15 @@ class App extends React.Component<any, any> {
                 <Route exact={true} path="/list" component={List} />
               </Switch>
             </section>
-            <footer className="App-footer">
-              App Footer
+            <footer className={cls.appFooter}>
+              <Toolbar
+                className={cls.toolbarFooter}
+              >
+                <Email />
+                <Android />
+                <LocationOn />
+                <Whatshot />
+              </Toolbar>
             </footer>
           </div>
         </div>

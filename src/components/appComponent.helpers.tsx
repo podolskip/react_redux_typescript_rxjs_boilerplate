@@ -4,32 +4,33 @@ import Button from '@material-ui/core/Button';
 import { appComponentStyle as st } from './appComponent.style';
 
 class NavLinkContent implements NavLinkProps {
-  public linkContent: string;
+  public link: string;
   public to: string;
 }
 
 export const createLinksConfiguration = (): NavLinkContent[] => ([
   {
     to: '/',
-    linkContent: 'Home',
+    link: 'Home',
   },
   {
     to: '/wiki',
-    linkContent: 'Wiki-Search',
+    link: 'Wiki-Search',
   },
   {
     to: '/user',
-    linkContent: 'User Details',
+    link: 'User Details',
   },
 ]);
 
-export const createJSXLink = (props: NavLinkContent): JSX.Element => (
+export const createJSXLink = (props: NavLinkContent, index: number): JSX.Element => (
   <NavLink
+    key={index}
     to={props.to}
     className={st.navLink}
     {...props} >
     <Button>
-      {props.linkContent}
+      {props.link}
     </Button>
   </NavLink>
 );
