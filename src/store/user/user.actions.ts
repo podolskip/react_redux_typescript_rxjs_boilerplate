@@ -13,5 +13,5 @@ export const fetchUserInformationFinished = (
   payload: StoreTypes.IUser
 ): StoreTypes.IReduxAction<StoreTypes.IUser> => ({
   type: UserTypes.USER_INFORMATION_SUCCESS,
-  payload
+  payload,
 });
