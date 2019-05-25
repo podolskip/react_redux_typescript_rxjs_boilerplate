@@ -11,6 +11,7 @@
     "@material-ui/icons": "^3.0.2",
     "axios": "^0.18.0",
     "react": "^16.8.2",
+    "react-autosuggest": "^9.4.3",
     "react-dom": "^16.8.2",
     "react-redux": "^6.0.1",
     "react-router": "^4.3.1",
@@ -29,15 +30,18 @@
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
+    "@types/autosuggest-highlight": "^3.1.0",
     "@types/axios": "^0.14.0",
     "@types/jest": "^24.0.5",
     "@types/node": "^11.9.4",
     "@types/react": "^16.8.3",
+    "@types/react-autosuggest": "^9.3.8",
     "@types/react-dom": "^16.8.2",
     "@types/react-redux": "^7.0.1",
     "@types/react-router": "^4.4.4",
     "@types/react-router-dom": "^4.3.1",
     "@types/react-router-redux": "^5.0.18",
+    "autosuggest-highlight": "^3.1.1",
     "redux-devtools": "^3.5.0",
     "typescript": "^3.3.3"
   }
