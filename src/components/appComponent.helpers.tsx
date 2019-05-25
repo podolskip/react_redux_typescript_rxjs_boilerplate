@@ -1,29 +1,15 @@
 import * as React from 'react';
 import { NavLinkProps } from 'react-router-dom';
-import User from './testComponent';
 import { Route } from 'react-router';
+import HomePage from 'src/components/sections/homePage/homePage';
+import WikiSearch from 'src/components/sections/wikiSearch/wikiSearch';
+import User from 'src/components/sections/user/user';
 
 export class NavLinkContent implements NavLinkProps {
   public link: string;
   public to: string;
   public component: React.ComponentType;
 }
-
-const HomePage: React.SFC = (props: any) => {
-  return (
-    <div>
-      HomePage
-      </div>
-  );
-};
-
-const List: React.SFC = (props: any) => {
-  return (
-    <div>
-      List
-    </div>
-  );
-};
 
 export const createLinksConfiguration = (): NavLinkContent[] => ([
   {
@@ -34,7 +20,7 @@ export const createLinksConfiguration = (): NavLinkContent[] => ([
   {
     to: '/wiki',
     link: 'Wiki-Search',
-    component: List,
+    component: WikiSearch,
   },
   {
     to: '/user',
