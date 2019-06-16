@@ -6,7 +6,7 @@ import Android from '@material-ui/icons/Android';
 import LocationOn from '@material-ui/icons/LocationOn';
 import Whatshot from '@material-ui/icons/Whatshot';
 import Toolbar from '@material-ui/core/Toolbar';
-import { SvgIconProps } from '@material-ui/core/SvgIcon';
+// import { SvgIconProps } from '@material-ui/core/SvgIcon';
 // Styles
 import { footerStyle as cls } from './footer.styles';
 
@@ -14,12 +14,12 @@ export type FooterIconType = {
   link: string;
   name: string;
   description: string;
-  displayIcon: React.FunctionComponent<SvgIconProps>;
+  displayIcon: () => JSX.Element;
 };
 
 export const createIconButon = ({ displayIcon }: FooterIconType) => (
   <IconButton>
-    {displayIcon}
+    {displayIcon()}
   </IconButton>
 );
 
@@ -28,7 +28,7 @@ export const footerIconsConfiguraition = [
     link: 'https://www.google.com/gmail/',
     name: 'Gmail',
     description: 'Get it touch with me through email!',
-    displayIcon: Email,
+    displayIcon: () => <Email />,
   },
 ] as FooterIconType[];
 
