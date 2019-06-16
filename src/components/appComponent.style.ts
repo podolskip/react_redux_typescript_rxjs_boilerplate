@@ -1,4 +1,10 @@
-import { cssRaw } from 'typestyle';
+import { cssRaw, style } from 'typestyle';
+
+export const appComponentStyle = {
+  sectionStyle: style({
+    margin: '0 5%',
+  }),
+};
 
 cssRaw(`
 

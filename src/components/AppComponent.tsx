@@ -8,6 +8,7 @@ import history from 'src/configuration/history';
 import { createLinksConfiguration, createRouteComponents } from './appComponent.helpers';
 // STYLES
 import './appComponent.style';
+import { appComponentStyle as cl } from './appComponent.style';
 // Header
 import Header from './header/header';
 // Footer
@@ -22,7 +23,7 @@ class App extends React.Component<any, any> {
         <div>
           <div className="App">
             <Header />
-            <section>
+            <section className={cl.sectionStyle}>
               <Switch>
                 {
                   createLinksConfiguration()
