@@ -1,22 +1,40 @@
 // tslint:disable:max-line-length
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { homeCl } from './homePage.style';
+
+const dependenciesJSON = {
+  'dependencies': {
+    'react': '^16.8.2',
+    'react-dom': '^16.8.2',
+    'react-scripts-ts': '3.1.0',
+  },
+  'devDependencies': {
+    '@types/jest': '^24.0.5',
+    '@types/node': '^11.9.4',
+    '@types/react': '^16.8.3',
+    '@types/react-dom': '^16.8.2',
+    'typescript': '^3.3.3',
+  },
+};
 
 export class HomePage extends React.Component {
   public render() {
     return (
-      <section>
+      <section >
         <h1>
           Welcome to the main page of React redux boilerplate
       </h1>
         <h3>Technology stack covered by this project:</h3>
-        <ul>
-          <li>React: </li>
-        </ul>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non lorem lacinia erat volutpat laoreet commodo ac urna. Mauris odio est, cursus vitae metus nec, sodales commodo ante. Fusce blandit purus sit amet tempus pellentesque. Maecenas facilisis in justo at maximus. Phasellus eleifend, eros a tristique cursus, arcu felis viverra diam, quis accumsan nisl mauris eget magna. Sed ex ipsum, lobortis sit amet sapien ut, aliquet faucibus libero. Sed non accumsan nibh, a lobortis purus. Quisque imperdiet posuere ligula. Mauris a erat cursus, vulputate nunc ac, consequat tortor. Sed sollicitudin eu libero in bibendum. Nulla luctus, nisl non dapibus pellentesque, lectus dolor imperdiet felis, sed lacinia leo elit eget velit. In risus sem, varius nec hendrerit vitae, auctor eget velit.
-      </p>
-
+        <div className={homeCl.divTable}>
+          <div className={homeCl.divInlineBlock}>
+            <pre
+              className={homeCl.jsonStyling}
+            >
+              {JSON.stringify(dependenciesJSON, undefined, 2)}
+            </pre>
+          </div>
+        </div>
       </section>
     );
   }
