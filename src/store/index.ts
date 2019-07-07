@@ -8,11 +8,17 @@ import { routerMiddleware } from 'react-router-redux';
 import rootEpic from 'src/store/root.epic';
 import { rootReducer } from 'src/store/root.reducer';
 import history from 'src/configuration/history';
+import { assignApiUrlBasenOnEnv } from 'src/configuration/appConfig';
+import GenericApi from 'src/services/api/genericApi';
+
+const genericApiService = new GenericApi(assignApiUrlBasenOnEnv, 50000);
 
 const routerHistoryMiddleware = routerMiddleware(history);
 
 const epicMiddleware = createEpicMiddleware({
-  dependencies: {}, // in case for future dependencies
+  dependencies: {
+    genericApiService,
+  }, // in case for future dependencies
 });
 
 export const configureStore = () => {

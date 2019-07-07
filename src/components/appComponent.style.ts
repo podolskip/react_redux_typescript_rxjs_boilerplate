@@ -2,7 +2,7 @@ import { cssRaw, style } from 'typestyle';
 
 export const appComponentStyle = {
   sectionStyle: style({
-    margin: '0 5%',
+    margin: '0 5% 64px 5%',
   }),
 };
 
