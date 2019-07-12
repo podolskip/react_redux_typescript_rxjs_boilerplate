@@ -2,6 +2,7 @@ import { Action } from 'redux';
 export type Optional<T> = T | undefined;
 
 export interface IReduxAction<T = undefined> extends Action<string> {
+  type: string;
   payload?: T;
   isLoading?: boolean;
   [key: string]: any;

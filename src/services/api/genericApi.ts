@@ -19,14 +19,14 @@ export default class GenericApi {
 
   public getJSON<T>(
     path: string,
-    accessToken: string = (window as any).appsAccessToken,
+    // accessToken: string = (window as any).appsAccessToken,
   ) {
     return ajax
       .getJSON(path,this.HeadersWithNoCache)
       .pipe(
-        // will be removed in future dev 
-// tslint:disable:no-console
-        catchError(err => console.log(err))
+        // will be removed in future dev
+        // tslint:disable:no-console
+        catchError(err => () => console.log(err))
       )
       ;
   }
