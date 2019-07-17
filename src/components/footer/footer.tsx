@@ -5,7 +5,7 @@ import Email from '@material-ui/icons/Email';
 import Whatshot from '@material-ui/icons/Whatshot';
 import School from '@material-ui/icons/School';
 import Face from '@material-ui/icons/Face';
-import Toolbar from '@material-ui/core/Toolbar';
+// import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
 // import { SvgIconProps } from '@material-ui/core/SvgIcon';
 // Styles
@@ -53,7 +53,9 @@ export const createIconButon = ({ displayIcon, name, description, link }: Footer
       href={link}
       target={'_blank'}
     >
-      <IconButton>
+      <IconButton
+        className={cls.footerIconButton}
+      >
         {displayIcon()}
       </IconButton>
     </a>
@@ -64,14 +66,14 @@ class Footer extends React.Component {
   public render() {
     return (
       <footer className={cls.appFooter}>
-        <Toolbar
+        <div
           className={cls.toolbarFooter}
         >
           {
             footerIconsConfiguraition
               .map(createIconButon)
           }
-        </Toolbar>
+        </div>
       </footer>
     );
   }

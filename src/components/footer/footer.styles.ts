@@ -10,9 +10,14 @@ export const footerStyle = {
     marginLeft: '5%',
     marginRight: '5%',
     borderTop: '1px solid grey',
+    backgroundColor: 'white',
   }),
   toolbarFooter: style({
     justifyContent: 'space-evenly',
     alignItems: 'center',
+    maxHeight: '50px',
+  }),
+  footerIconButton: style({
+    padding: '7px 5%',
   }),
 };
