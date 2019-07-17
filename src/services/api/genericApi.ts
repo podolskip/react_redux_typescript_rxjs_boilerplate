@@ -2,7 +2,8 @@ import axios from 'axios';
 import { of } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 import { catchError } from 'rxjs/internal/operators/catchError';
-import { createHeadersWithToken , TokenOptionsEnum  } from './genericApi.helpers';
+import { createHeadersWithToken } from './genericApi.helpers';
+import { TokenOptionsEnum, MethodsAPI } from './genericApi.types';
 
 export default class GenericApi {
   public serviceUrl: string;
@@ -85,7 +86,7 @@ export default class GenericApi {
 
   public modifyAPI<T extends{}> (
     route: string,
-    method: 'POST' | 'PUT' | 'PATCH',
+    method: MethodsAPI,
     requestBody?: T,
     userToken: string = (window as any).appsAccessToken
   ) {
@@ -102,7 +103,7 @@ export default class GenericApi {
         type: 'API_ERROR',
         payload: err,
       })))
-    )
+    );
   }
 
 }
