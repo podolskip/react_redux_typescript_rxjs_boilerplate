@@ -1,11 +1,12 @@
 // tslint:disable
 const express = require('express');
 const bodyParser = require('body-parser');
+var path = require('path');
 const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
-const Places = require('./boilerplateApi/models/boilerplateModel');
-const routes = require('./boilerplateApi/routes/boilerplateRoutes');
-
+const Places = require('./backend/boilerplateApi/models/boilerplateModel');
+const routes = require('./backend/boilerplateApi/routes/boilerplateRoutes');
+''
 
 const app = express();
 const enter = '\r' //'\033[0G';
@@ -23,7 +24,12 @@ mongoose.connection.on('error', (error) => {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-// app.get()
+
+app.use(express.static(__dirname + '/build'));
+app.route('/')
+  .get(function (req, res) {
+    res.sendFile(path.join(__dirname,'/build/index.html'))
+  })
 
 routes(app);
 
@@ -35,3 +41,4 @@ app.listen(port,() => {
   console.log('Test places server started at port:' + port); 
 });
 
+console.log(app.get('appPath'))
