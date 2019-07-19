@@ -55,7 +55,7 @@ export default class GenericApi {
         ? createHeadersWithToken(userToken, this.HeadersWithNoCache )
         : createHeadersWithToken(TokenOptionsEnum.noToken, this.HeadersWithNoCache ),
     })
-    .then(response => response)
+    // .then(response => response)
     .catch(err => ({
       type: 'API_ERROR',
       payload: err,

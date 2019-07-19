@@ -18,7 +18,7 @@ const routerHistoryMiddleware = routerMiddleware(history);
 const epicMiddleware = createEpicMiddleware({
   dependencies: {
     genericApiService,
-  }, // in case for future dependencies
+  },
 });
 
 export const configureStore = () => {

@@ -7,17 +7,26 @@ import {
 import {
   debounceTime,
   switchMap,
+  map,
   // tap,
 } from 'rxjs/operators';
+import { from } from 'rxjs';
 // ACTIONS
 import { fetchUserInformationFinished } from './user.actions';
 // TYPES
 import * as UserTypes from './user.types';
 import { IState, IUserAuthentication, IReduxAction } from 'src/store/store.types';
+import GenericApi from 'src/services/api/genericApi';
+// import { AjaxResponse } from 'rxjs/ajax';
+
+export type AppAPI = {
+  genericApiService: GenericApi;
+};
 
 export const fetchUserInformationEpic: Epic = (
   action$: ActionsObservable<IReduxAction<IUserAuthentication>>,
-  state$: StateObservable<IState>
+  state$: StateObservable<IState>,
+  { genericApiService }: AppAPI
 ) =>
   action$
     .pipe(
@@ -25,12 +34,13 @@ export const fetchUserInformationEpic: Epic = (
       debounceTime(2000),
       // tslint:disable-next-line:no-console
       switchMap(action => (
-        fetch('https://randomuser.me/api/')
-          .then(res => res.json())
-          .then((
-            response: any
-          ) => fetchUserInformationFinished(response)
+          from( genericApiService
+          .getJSON('https://randomuser.me/api/'))
+          .pipe(
+            map(response => {
+              return fetchUserInformationFinished(response as any);
+            })
           )
-      )
+        )
       )
     );

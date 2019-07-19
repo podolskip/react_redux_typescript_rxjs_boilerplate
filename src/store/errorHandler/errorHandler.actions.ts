@@ -14,4 +14,5 @@ export const throwError = (
 ):IReduxAction<ThrowErrorType> => ({
   type: THROW_ERROR,
   payload,
+  isLoading: false,
 });
